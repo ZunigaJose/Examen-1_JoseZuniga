@@ -19,6 +19,11 @@ public class Persona {
         this.nacimiento = nacimiento;
     }
 
+    public Persona(String nombreusuario, String contraseña) {
+        this.nombreusuario = nombreusuario;
+        this.contraseña = contraseña;
+    }
+
     public String getNombreusuario() {
         return nombreusuario;
     }
