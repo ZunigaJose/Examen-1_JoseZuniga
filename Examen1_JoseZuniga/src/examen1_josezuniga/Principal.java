@@ -37,7 +37,8 @@ public class Principal extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(3, false);
         jLabel27.setVisible(false);
         jTabbedPane1.setSelectedIndex(jTabbedPane1.getTabCount() - 1);
-        
+        logCreate.setVisible(false);
+        loglabel.setVisible(false);
     }
 
     /**
@@ -117,6 +118,8 @@ public class Principal extends javax.swing.JFrame {
         logPass = new javax.swing.JPasswordField();
         logIngreso = new javax.swing.JButton();
         jLabel27 = new javax.swing.JLabel();
+        loglabel = new javax.swing.JLabel();
+        logCreate = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -552,6 +555,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel27.setForeground(new java.awt.Color(255, 0, 0));
         jLabel27.setText("No fue Posible Iniciar Sesion");
 
+        loglabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        loglabel.setText("Si no tiene una cuenta la puede crear aqui:");
+
+        logCreate.setForeground(new java.awt.Color(0, 0, 255));
+        logCreate.setText("Crear Cuenta");
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
@@ -565,16 +574,20 @@ public class Principal extends javax.swing.JFrame {
                         .addGap(222, 222, 222)
                         .addComponent(jLabel26))
                     .addGroup(jPanel5Layout.createSequentialGroup()
-                        .addGap(216, 216, 216)
-                        .addComponent(logIngreso))
-                    .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(160, 160, 160)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel27)
                             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(logUser)
-                                .addComponent(logPass, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE)))))
-                .addContainerGap(240, Short.MAX_VALUE))
+                                .addComponent(logPass, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))))
+                    .addGroup(jPanel5Layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(loglabel)
+                            .addComponent(logIngreso))
+                        .addGap(18, 18, 18)
+                        .addComponent(logCreate)))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -589,9 +602,13 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(logPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel27)
-                .addGap(41, 41, 41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(logIngreso)
-                .addContainerGap(202, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(loglabel)
+                    .addComponent(logCreate))
+                .addContainerGap(188, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("LogIn", jPanel5);
@@ -728,6 +745,9 @@ public class Principal extends javax.swing.JFrame {
                             jTabbedPane1.setEnabledAt(0, true);
                         }
                         historial.append("\n Ingreso de Usuario " + user);
+                        break;
+                    } else {
+                        jLabel27.setVisible(true);
                     }
                 } else { 
                     jLabel27.setVisible(true);
@@ -737,7 +757,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_logIngresoActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        ((Persona)users.get(usuarioSelected)).setLibro((Libro)jcSeleccion2.getSelectedItem());
+        if (jcSeleccion2.getSelectedIndex() >= 0) {
+            ((Persona)users.get(usuarioSelected)).setLibro((Libro)jcSeleccion2.getSelectedItem());
+            ((Libro)jcSeleccion2.getSelectedItem()).setCopias(((Libro)jcSeleccion2.getSelectedItem()).getCopias() - 1);
+            for (Libro libro : libros) {
+                if (libro.equals((Libro)jcSeleccion2.getSelectedItem())) {
+                    libro.setCopias(libro.getCopias() - 1);
+                    break;
+                }
+            }
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -778,7 +807,7 @@ public class Principal extends javax.swing.JFrame {
     public void preLibros(){
         libros.add(new Libro("Cipotes", "Historia de la vida de unos niños", "Accion", "Ramon Amaya", new Date(1960, 0, 0), 5, 15, 160, 6));
         libros.add(new Libro("Prision Verde", "La cruda verdad acerca de los campos bananeros", "Historia", "Ramon Amaya", new Date(1965, 0, 0), 4, 9, 120, 3));
-        libros.add(new Libro("Cuentos Y Leyendas", "Temibles compilacion de historias de terror", "Fantasia", "Jorge Montenegro", new Date(1989, 0, 0), 5, 6, 180, 5));
+        libros.add(new Libro("Cuentos Y Leyendas", "Temible compilacion de historias de terror", "Fantasia", "Jorge Montenegro", new Date(1989, 0, 0), 5, 6, 180, 5));
         libros.add(new Libro("Blanca Olmedo", "La Historia de Blanca Olmedo", "Romance", "Lucila Gamero de Medina", new Date(1970, 0, 0), 3, 2, 220, 7));
         libros.add(new Libro("Compilacion de Poemas", "Compilacion de los mejores poemas de Juan Ramon Molina", "Historia", "Juan Ramon Molina", new Date(1950, 0, 0), 5, 6, 260, 13));
     }
@@ -844,9 +873,11 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextField jtAutor;
     private javax.swing.JTextField jtPrecio;
     private javax.swing.JTextField jtTitulo;
+    private javax.swing.JButton logCreate;
     private javax.swing.JButton logIngreso;
     private javax.swing.JPasswordField logPass;
     private javax.swing.JTextField logUser;
+    private javax.swing.JLabel loglabel;
     private javax.swing.JTextField mdAutor;
     private javax.swing.JSpinner mdCopias;
     private javax.swing.JTextArea mdDescripcion;
