@@ -55,6 +55,21 @@ private DefaultTableModel modelooriginal;
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jDialog1 = new javax.swing.JDialog();
+        jPanel7 = new javax.swing.JPanel();
+        jLabel29 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        jLabel31 = new javax.swing.JLabel();
+        newfecha = new com.toedter.calendar.JDateChooser();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel33 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        newcontra = new javax.swing.JTextField();
+        newUser1 = new javax.swing.JTextField();
+        newCorreo = new javax.swing.JTextField();
+        newnum1 = new javax.swing.JTextField();
+        jComboBox1 = new javax.swing.JComboBox<>();
+        newcrear = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -130,6 +145,132 @@ private DefaultTableModel modelooriginal;
         jLabel27 = new javax.swing.JLabel();
         loglabel = new javax.swing.JLabel();
         logCreate = new javax.swing.JButton();
+
+        jLabel29.setText("Nombre de usuario");
+
+        jLabel30.setText("Contraseña");
+
+        jLabel31.setText("Fecha de Nacimiento");
+
+        jLabel32.setText("Numero de Telefono");
+
+        jLabel33.setText("Correo");
+
+        jLabel34.setText("Genero");
+
+        newcontra.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newcontraActionPerformed(evt);
+            }
+        });
+
+        newUser1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newUser1ActionPerformed(evt);
+            }
+        });
+
+        newCorreo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newCorreoActionPerformed(evt);
+            }
+        });
+
+        newnum1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newnum1ActionPerformed(evt);
+            }
+        });
+
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fantasia", "Romance", "Accion", "Historia" }));
+
+        newcrear.setText("Crear");
+        newcrear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                newcrearActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addComponent(jLabel32)
+                                .addGap(18, 18, 18)
+                                .addComponent(newnum1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel31)
+                                    .addComponent(jLabel29)
+                                    .addComponent(jLabel30))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(newcontra, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(newfecha, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(newUser1))))
+                            .addGroup(jPanel7Layout.createSequentialGroup()
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel33)
+                                    .addComponent(jLabel34))
+                                .addGap(71, 71, 71)
+                                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(newCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGap(195, 195, 195)
+                        .addComponent(newcrear)))
+                .addContainerGap(213, Short.MAX_VALUE))
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel7Layout.createSequentialGroup()
+                .addGap(67, 67, 67)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(newfecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel7Layout.createSequentialGroup()
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel29)
+                            .addComponent(newUser1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel30)
+                            .addComponent(newcontra, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel31)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32)
+                    .addComponent(newnum1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel33)
+                    .addComponent(newCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(6, 6, 6)
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel34)
+                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(59, 59, 59)
+                .addComponent(newcrear)
+                .addContainerGap(72, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -451,6 +592,11 @@ private DefaultTableModel modelooriginal;
         seleNombre.setEditable(false);
 
         seleGenero.setEditable(false);
+        seleGenero.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                seleGeneroActionPerformed(evt);
+            }
+        });
 
         seleAutor.setEditable(false);
 
@@ -643,6 +789,11 @@ private DefaultTableModel modelooriginal;
 
         logCreate.setForeground(new java.awt.Color(0, 0, 255));
         logCreate.setText("Crear Cuenta");
+        logCreate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logCreateActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -842,6 +993,9 @@ private DefaultTableModel modelooriginal;
                         jcSeleccion3.setSelectedItem(((Persona)users.get(usuarioSelected)).getGeneroF());
                         inicio = true;
                         this.inicio = true;
+                        jLabel27.setVisible(false);
+                        logCreate.setVisible(false);
+                        loglabel.setVisible(false);
                         break;
                     }
                 }
@@ -849,6 +1003,8 @@ private DefaultTableModel modelooriginal;
         }
         if (!inicio) {
             jLabel27.setVisible(true);
+            logCreate.setVisible(true);
+            loglabel.setVisible(true);
         }
     }//GEN-LAST:event_logIngresoActionPerformed
 
@@ -909,6 +1065,48 @@ private DefaultTableModel modelooriginal;
         }
     }//GEN-LAST:event_jTabbedPane1StateChanged
 
+    private void newcontraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newcontraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newcontraActionPerformed
+
+    private void newUser1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newUser1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newUser1ActionPerformed
+
+    private void newCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newCorreoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newCorreoActionPerformed
+
+    private void newnum1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newnum1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_newnum1ActionPerformed
+
+    private void seleGeneroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seleGeneroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_seleGeneroActionPerformed
+
+    private void newcrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newcrearActionPerformed
+        try {
+            String nombreusuario, contraseña, correo, generoF;
+            Date nacimiento;
+            nombreusuario = newUser1.getText();
+            contraseña = newcontra.getText();
+            correo = newCorreo.getText();
+            generoF = jComboBox1.getSelectedItem().toString();
+            nacimiento = newfecha.getDate();
+            users.add(new Persona(nombreusuario, contraseña, correo, generoF, nacimiento));
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, "Lo siento no se pudo\nBye!");
+            jDialog1.dispose();
+        }
+    }//GEN-LAST:event_newcrearActionPerformed
+
+    private void logCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logCreateActionPerformed
+        jDialog1.pack();
+        jDialog1.setLocationRelativeTo(this);
+        jDialog1.setVisible(true);
+    }//GEN-LAST:event_logCreateActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -967,6 +1165,8 @@ private DefaultTableModel modelooriginal;
     private javax.swing.JButton establecer;
     private javax.swing.JTextArea historial;
     private javax.swing.JButton jButton1;
+    private javax.swing.JComboBox<String> jComboBox1;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -988,7 +1188,13 @@ private DefaultTableModel modelooriginal;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -1001,6 +1207,7 @@ private DefaultTableModel modelooriginal;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -1031,6 +1238,12 @@ private DefaultTableModel modelooriginal;
     private javax.swing.JComboBox<String> mdPuntaje;
     private javax.swing.JTextField mdTitulo;
     private com.toedter.calendar.JYearChooser mdYear;
+    private javax.swing.JTextField newCorreo;
+    private javax.swing.JTextField newUser1;
+    private javax.swing.JTextField newcontra;
+    private javax.swing.JButton newcrear;
+    private com.toedter.calendar.JDateChooser newfecha;
+    private javax.swing.JTextField newnum1;
     private javax.swing.JTextField seleAutor;
     private javax.swing.JTextArea seleDesc;
     private javax.swing.JTextField seleGenero;
