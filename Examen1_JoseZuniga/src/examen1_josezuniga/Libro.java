@@ -93,6 +93,9 @@ public class Libro {
     public void setEdicion(int edicion) {
         this.edicion = edicion;
     }
-    
-    
+
+    @Override
+    public String toString() {
+        return titulo;
+    }
 }
