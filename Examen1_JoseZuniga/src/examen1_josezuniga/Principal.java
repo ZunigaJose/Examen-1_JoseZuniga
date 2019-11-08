@@ -9,13 +9,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author josez
  */
 public class Principal extends javax.swing.JFrame {
-
+private boolean inicio = false;
+private DefaultTableModel modelooriginal;
     /**
      * Creates new form Principal
      */
@@ -27,6 +29,7 @@ public class Principal extends javax.swing.JFrame {
         for (Libro libro : libros) {
             model.addElement(libro);
         }
+        modelooriginal = (DefaultTableModel)tabla.getModel();
         this.setLocationRelativeTo(null);
         jcSeleccion.setModel(model);
         jcSeleccion2.setModel(model);
@@ -35,10 +38,12 @@ public class Principal extends javax.swing.JFrame {
         jTabbedPane1.setEnabledAt(1, false);
         jTabbedPane1.setEnabledAt(2, false);
         jTabbedPane1.setEnabledAt(3, false);
+        jTabbedPane1.setEnabledAt(4, false);
         jLabel27.setVisible(false);
         jTabbedPane1.setSelectedIndex(jTabbedPane1.getTabCount() - 1);
         logCreate.setVisible(false);
         loglabel.setVisible(false);
+        jcSeleccion3.setSelectedIndex(-1);
     }
 
     /**
@@ -111,6 +116,11 @@ public class Principal extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jScrollPane3 = new javax.swing.JScrollPane();
         historial = new javax.swing.JTextArea();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tabla = new javax.swing.JTable();
+        jLabel28 = new javax.swing.JLabel();
+        jcSeleccion3 = new javax.swing.JComboBox<>();
         jPanel5 = new javax.swing.JPanel();
         jLabel25 = new javax.swing.JLabel();
         jLabel26 = new javax.swing.JLabel();
@@ -123,6 +133,12 @@ public class Principal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
+
+        jTabbedPane1.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                jTabbedPane1StateChanged(evt);
+            }
+        });
 
         jPanel1.setEnabled(false);
 
@@ -538,6 +554,73 @@ public class Principal extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Historial", jPanel3);
 
+        jPanel6.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusGained(java.awt.event.FocusEvent evt) {
+                jPanel6FocusGained(evt);
+            }
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                jPanel6FocusLost(evt);
+            }
+        });
+
+        tabla.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Titulo", "Autor", "Año", "Copias Disp."
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane5.setViewportView(tabla);
+
+        jLabel28.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel28.setText("Su genero Favorito");
+
+        jcSeleccion3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Fantasia", "Romance", "Accion", "Historia" }));
+        jcSeleccion3.setEnabled(false);
+        jcSeleccion3.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                jcSeleccion3ItemStateChanged(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 576, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel28)
+                        .addGap(167, 167, 167)
+                        .addComponent(jcSeleccion3, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel28)
+                    .addComponent(jcSeleccion3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(36, 36, 36)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 351, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(104, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Listar Por genero", jPanel6);
+
         jLabel25.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel25.setText("Usuario");
 
@@ -582,9 +665,11 @@ public class Principal extends javax.swing.JFrame {
                                 .addComponent(logPass, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(loglabel)
-                            .addComponent(logIngreso))
+                            .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(198, 198, 198)
+                                .addComponent(logIngreso)))
                         .addGap(18, 18, 18)
                         .addComponent(logCreate)))
                 .addContainerGap(117, Short.MAX_VALUE))
@@ -665,6 +750,7 @@ public class Principal extends javax.swing.JFrame {
             jcPuntaje.setSelectedIndex(-1);
             jcGenero.setSelectedIndex(-1);
             jYear.setYear(2019);
+            historial.append("Se creo libro" + titulo);
         }
     }//GEN-LAST:event_CreacionActionPerformed
 
@@ -727,6 +813,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_jcSeleccion2ItemStateChanged
 
     private void logIngresoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logIngresoActionPerformed
+        boolean inicio = false;
         if (logUser.getText().isEmpty() && logPass.getText().isEmpty()) {
             jLabel27.setVisible(true);
         } else {
@@ -737,22 +824,31 @@ public class Principal extends javax.swing.JFrame {
                     if (us.getContraseña().equals(pass)) {
                         if (!user.equals("admin")) {
                             jTabbedPane1.setEnabledAt(2, true);
+                            jTabbedPane1.setEnabledAt(4, true);
+                            jTabbedPane1.setEnabledAt(0, false);
+                            jTabbedPane1.setEnabledAt(1, false);
+                            jTabbedPane1.setEnabledAt(3, false);
+                            jTabbedPane1.setEnabledAt(0, false);
                             usuarioSelected = users.indexOf(us);
                         } else {
                             jTabbedPane1.setEnabledAt(0, true);
                             jTabbedPane1.setEnabledAt(1, true);
                             jTabbedPane1.setEnabledAt(3, true);
                             jTabbedPane1.setEnabledAt(0, true);
+                            jTabbedPane1.setEnabledAt(2, false);
+                            jTabbedPane1.setEnabledAt(4, false);
                         }
                         historial.append("\n Ingreso de Usuario " + user);
+                        jcSeleccion3.setSelectedItem(((Persona)users.get(usuarioSelected)).getGeneroF());
+                        inicio = true;
+                        this.inicio = true;
                         break;
-                    } else {
-                        jLabel27.setVisible(true);
                     }
-                } else { 
-                    jLabel27.setVisible(true);
                 }
             }
+        }
+        if (!inicio) {
+            jLabel27.setVisible(true);
         }
     }//GEN-LAST:event_logIngresoActionPerformed
 
@@ -766,8 +862,52 @@ public class Principal extends javax.swing.JFrame {
                     break;
                 }
             }
+            historial.append("\n" + users.get(usuarioSelected).getNombreusuario() + "Agrego el libro " + seleNombre.getText() + " a su lista.");
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jPanel6FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel6FocusGained
+        jcSeleccion3.setSelectedItem(((Persona)users.get(usuarioSelected)).getGeneroF());
+    }//GEN-LAST:event_jPanel6FocusGained
+
+    private void jcSeleccion3ItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_jcSeleccion3ItemStateChanged
+        if (jcSeleccion3.getSelectedIndex() >= 0) {
+            Object[] arr;
+            DefaultTableModel model = (DefaultTableModel) tabla.getModel();
+            for (Libro libro : libros) {
+                if (libro.getGenero().equals(jcSeleccion3.getSelectedItem().toString())) {
+                    arr = new Object[]{libro.getTitulo(), libro.getAutor(), libro.getYear(), libro.getCopias()};
+                    model.addRow(arr);
+                }
+            }
+            tabla.setModel(model);
+        }
+    }//GEN-LAST:event_jcSeleccion3ItemStateChanged
+
+    private void jPanel6FocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_jPanel6FocusLost
+        jcSeleccion3.setSelectedIndex(-1);
+    }//GEN-LAST:event_jPanel6FocusLost
+
+    private void jTabbedPane1StateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_jTabbedPane1StateChanged
+        if (inicio) {
+            tabla.setModel(new javax.swing.table.DefaultTableModel(
+                    new Object[][]{},
+                    new String[]{
+                        "Titulo", "Autor", "Año", "Copias Disp."
+                    }
+            ) {
+                Class[] types = new Class[]{
+                    java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Integer.class
+                };
+
+                public Class getColumnClass(int columnIndex) {
+                    return types[columnIndex];
+                }
+            });
+            jcSeleccion3.setSelectedIndex(-1);
+            jcSeleccion3.setSelectedItem(((Persona) users.get(usuarioSelected)).getGeneroF());
+        }
+    }//GEN-LAST:event_jTabbedPane1StateChanged
 
     /**
      * @param args the command line arguments
@@ -847,6 +987,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
@@ -859,10 +1000,12 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private com.toedter.calendar.JYearChooser jYear;
@@ -870,6 +1013,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jcPuntaje;
     private javax.swing.JComboBox<String> jcSeleccion;
     private javax.swing.JComboBox<String> jcSeleccion2;
+    private javax.swing.JComboBox<String> jcSeleccion3;
     private javax.swing.JTextField jtAutor;
     private javax.swing.JTextField jtPrecio;
     private javax.swing.JTextField jtTitulo;
@@ -891,6 +1035,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JTextArea seleDesc;
     private javax.swing.JTextField seleGenero;
     private javax.swing.JTextField seleNombre;
+    private javax.swing.JTable tabla;
     // End of variables declaration//GEN-END:variables
     private ArrayList<Libro> libros = new ArrayList<>();
     private int usuarioSelected;
