@@ -901,7 +901,7 @@ private DefaultTableModel modelooriginal;
             jcPuntaje.setSelectedIndex(-1);
             jcGenero.setSelectedIndex(-1);
             jYear.setYear(2019);
-            historial.append("Se creo libro" + titulo);
+            historial.append("\nSe creo libro" + titulo);
         }
     }//GEN-LAST:event_CreacionActionPerformed
 
@@ -1095,8 +1095,19 @@ private DefaultTableModel modelooriginal;
             generoF = jComboBox1.getSelectedItem().toString();
             nacimiento = newfecha.getDate();
             users.add(new Persona(nombreusuario, contraseña, correo, generoF, nacimiento));
+            historial.append("\n" + "Se Creo Usuario " + nombreusuario);
+            newUser1.setText("");
+            newcontra.setText("");
+            newCorreo.setText("");
+            jComboBox1.setSelectedIndex(-1);
+            newfecha.setDate(new Date());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(this, "Lo siento no se pudo\nBye!");
+            newUser1.setText("");
+            newcontra.setText("");
+            newCorreo.setText("");
+            jComboBox1.setSelectedIndex(-1);
+            newfecha.setDate(new Date());
             jDialog1.dispose();
         }
     }//GEN-LAST:event_newcrearActionPerformed
